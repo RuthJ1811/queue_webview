@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('https://cdn.yellowmessenger.com/iaMfuYMI2Qyh1602229092131.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: bottom left;
+            background-size: 200px 300px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <p>TESTSTSTTS</p>
+    <script>
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
+                }
+            }
+        }
+        var tech = GetURLParameter('technology');
+        var blog = GetURLParameter('blog');
+
+        console.log(tech, "tech")
+        console.log(blog, "blog")
+    </script>
+</body>
+
+</html>
