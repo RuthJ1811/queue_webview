@@ -4,29 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
-            background-image: url('https://cdn.yellowmessenger.com/iaMfuYMI2Qyh1602229092131.png');
+            background-image: url('https://cdn.yellowmessenger.com/oLhA6YSJrd7k1602241557767.jpeg');
             background-repeat: no-repeat;
             background-attachment: fixed;
-            background-position: bottom left;
-            margin-left: 10px;
-           /* background-size: 40px 50px;
-            background-color: white; */
+            background-size: 300px 380px;
+            font-family: 'Roboto', sans-serif;
         }
 
         #circle {
-            width: 90px;
-            height: 90px;
-            line-height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             font-size: 40px;
             color: black;
             text-align: center;
             background: #E0FFFF;
-            margin: 10px;
-            margin-left: 60px;
-            margin-top: 5px;
+            margin-left: 80px;
+            margin-top: px;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         #queue_message,
@@ -34,19 +33,28 @@
             margin: 10px;
         }
 
-        #container {
+        .main_container {
             text-align: center;
-            margin-left: 50px;
+            width: 260px;
+        }
+
+        .inline_queue {
+            font-size: 17px;
+        }
+
+        .queue_number {
+            padding-top: 15px;
+            margin-bottom: -5px;
         }
     </style>
 </head>
 
 <body>
-    <p id="queue_message"></p>
-    <br />
+    <div class="main_container">
+        <p id="queue_message"></p>
         <div id="circle"></div>
-    <br />
-    <p id="estimated_time"></p>
+        <p id="estimated_time"></p>
+    </div>
 
     <script>
         function GetURLParameter(sParam) {
@@ -59,15 +67,14 @@
                 }
             }
         }
-        var queueMessage = GetURLParameter('queue_message');
         var queuePosition = GetURLParameter('queuePosition');
         var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
         const messageOne = document.querySelector('#queue_message')
         const messageTwo = document.querySelector('#circle')
         const messageThree = document.querySelector('#estimated_time')
-        messageOne.textContent = `Please wait. Our agent will serve you shortly.`
+        messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
 
-        messageTwo.textContent = queuePosition
+        messageTwo.innerHTML = "<div class='queue_number'>" + queuePosition + "</div><div class='inline_queue'>queue</div>"
         messageThree.textContent = "Estimated waiting time " + estimatedWaitTime + " minutes"
     </script>
 </body>
