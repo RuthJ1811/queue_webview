@@ -14,15 +14,6 @@
             background-color: white;
         }
 
-        /* #circle {
-            width: 50px;
-            height: 50px;
-            -webkit-border-radius: 25px;
-            -moz-border-radius: 25px;
-            border-radius: 25px;
-            background: pink;
-        } */
-
         #circle {
             width: 110px;
             height: 110px;
@@ -39,9 +30,9 @@
 
 <body>
     <p id="queue_message"></p>
-    <p id="queue_position"></p>
-
     <div id="circle"></div>
+    <br/>
+    <p id="estimated_time"></p>
 
     <script>
         function GetURLParameter(sParam) {
@@ -59,10 +50,11 @@
         var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
         const messageOne = document.querySelector('#queue_message')
         const messageTwo = document.querySelector('#circle')
-        messageOne.textContent = `Please wait. Our agent will serve you shortly.
-        Estimated waiting time: ` + estimatedWaitTime
+        const messageThree = document.querySelector('#estimated_time')
+        messageOne.textContent = `Please wait. Our agent will serve you shortly.`
 
         messageTwo.textContent = queuePosition
+        messageThree.textContent = "Estimated waiting time " + estimatedWaitTime + " minutes"
     </script>
 </body>
 
