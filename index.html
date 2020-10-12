@@ -50,34 +50,34 @@
 </head>
 
 <body>
-        <div class="main_container">
-            <p id="queue_message"></p>
-            <div id="circle"></div>
-            <p id="estimated_time"></p>
-        </div>
+    <div class="main_container">
+        <p id="queue_message"></p>
+        <div id="circle"></div>
+        <p id="estimated_time"></p>
+    </div>
 
-        <script>
-            function GetURLParameter(sParam) {
-                var sPageURL = window.location.search.substring(1);
-                var sURLVariables = sPageURL.split('&');
-                for (var i = 0; i < sURLVariables.length; i++) {
-                    var sParameterName = sURLVariables[i].split('=');
-                    if (sParameterName[0] == sParam) {
-                        return sParameterName[1];
-                    }
+    <script>
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
                 }
             }
+        }
 
-            var queuePosition = GetURLParameter('queuePosition');
-            var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
-            const messageOne = document.querySelector('#queue_message')
-            const messageTwo = document.querySelector('#circle')
-            const messageThree = document.querySelector('#estimated_time')
-            messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
+        var queuePosition = GetURLParameter('queuePosition');
+        var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
+        const messageOne = document.querySelector('#queue_message')
+        const messageTwo = document.querySelector('#circle')
+        const messageThree = document.querySelector('#estimated_time')
 
-            messageTwo.innerHTML = "<div class='queue_number'>" + queuePosition + "</div><div class='inline_queue'>queue</div>"
-            messageThree.textContent = "Estimated waiting time " + estimatedWaitTime + " minutes"
-        </script>
+        messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
+        messageTwo.innerHTML = "<div class='queue_number'>" + queuePosition + "</div><div class='inline_queue'>queue</div>"
+        messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + estimatedWaitTime + "</div> minutes"
+    </script>
 </body>
 
 </html>
