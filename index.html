@@ -50,49 +50,36 @@
 </head>
 
 <body>
-    <div class="main_container">
-        <p id="queue_message"></p>
-        <div id="circle"></div>
-        <p id="estimated_time"></p>
-    </div>
+    <iframe name="home-page">
+        <div class="main_container">
+            <p id="queue_message"></p>
+            <div id="circle"></div>
+            <p id="estimated_time"></p>
+        </div>
 
-    <script>
-        function GetURLParameter(sParam) {
-            var sPageURL = window.location.search.substring(1);
-            var sURLVariables = sPageURL.split('&');
-            for (var i = 0; i < sURLVariables.length; i++) {
-                var sParameterName = sURLVariables[i].split('=');
-                if (sParameterName[0] == sParam) {
-                    return sParameterName[1];
+        <script>
+            function GetURLParameter(sParam) {
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++) {
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam) {
+                        return sParameterName[1];
+                    }
                 }
             }
-        }
 
-        var queuePosition = GetURLParameter('queuePosition');
-        var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
-        const messageOne = document.querySelector('#queue_message')
-        const messageTwo = document.querySelector('#circle')
-        const messageThree = document.querySelector('#estimated_time')
-        messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
+            var queuePosition = GetURLParameter('queuePosition');
+            var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
+            const messageOne = document.querySelector('#queue_message')
+            const messageTwo = document.querySelector('#circle')
+            const messageThree = document.querySelector('#estimated_time')
+            messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
 
-        window.addEventListener('message', function (eventData) {
-            console.log("event listener active")
-            try {
-                if (JSON.parse(eventData.data)) {
-                    let event = JSON.parse(eventData.data);
-                    console.log("Received event");
-                    console.log(event, "event");
-                }
-            } catch (error) {
-                console.log(error);
-                return;
-            }
-        }, false)
-
-
-        messageTwo.innerHTML = "<div class='queue_number'>" + queuePosition + "</div><div class='inline_queue'>queue</div>"
-        messageThree.textContent = "Estimated waiting time " + estimatedWaitTime + " minutes"
-    </script>
+            messageTwo.innerHTML = "<div class='queue_number'>" + queuePosition + "</div><div class='inline_queue'>queue</div>"
+            messageThree.textContent = "Estimated waiting time " + estimatedWaitTime + " minutes"
+        </script>
+    </iframe>
 </body>
 
 </html>
