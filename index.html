@@ -67,7 +67,7 @@
         const messageThree = document.querySelector('#estimated_time')
         messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
         messageTwo.innerHTML = "<div class='queue_number'>" + ( queuePosition || 0 ) + "</div><div class='inline_queue'>queue</div>"
-        messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + ( estimatedWaitTime || 0 ) + "</div> minutes"
+        messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + ( estimatedWaitTime || 0 ) + "</div> minute(s)"
     </script>
     <script>
     window.addEventListener('message', event => {
@@ -78,7 +78,7 @@
         const messageThree = document.querySelector('#estimated_time')
         messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
         messageTwo.innerHTML = "<div class='queue_number'>" + ( queue_position || 0 ) + "</div><div class='inline_queue'>queue</div>"
-        messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + ( estimated_time || 0 ) + "</div> minutes"
+        messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + ( estimated_time || 0 ) + "</div> minute(s)"
     } else {
         return; 
     } 
