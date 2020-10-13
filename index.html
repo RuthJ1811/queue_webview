@@ -76,7 +76,6 @@
             messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + (estimatedWaitTime || 0) + "</div> minute(s)"
         }
 
-
         var queuePosition = GetURLParameter('queuePosition');
         var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
         displayMessage(queuePosition, estimatedWaitTime);
@@ -84,7 +83,7 @@
         window.addEventListener('message', event => {
             if (event.data && event.data.queue_message == "queue_message") {
                 const { queue_position, estimated_time } = event.data;
-                displayMessage(queuePosition, estimatedWaitTime);
+                displayMessage(queue_position, estimated_time);
             } else {
                 return;
             }
