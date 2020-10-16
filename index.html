@@ -67,23 +67,25 @@
             }
         }
 
-        function displayMessage(queuePosition, estimatedWaitTime) {
+        function displayMessage(queuePosition, estimatedWaitTime, waitMessage) {
             const messageOne = document.querySelector('#queue_message')
             const messageTwo = document.querySelector('#circle')
             const messageThree = document.querySelector('#estimated_time')
-            messageOne.innerHTML = `Please wait.<br/>Our agent will serve you shortly.`
+            messageOne.innerHTML = waitMessage
             messageTwo.innerHTML = "<div class='queue_number'>" + (queuePosition || 0) + "</div><div class='inline_queue'>queue</div>"
             messageThree.innerHTML = "Estimated waiting time <div class='estimated_queue_time'>" + (estimatedWaitTime || 0) + "</div> minute(s)"
         }
 
         var queuePosition = GetURLParameter('queuePosition');
         var estimatedWaitTime = GetURLParameter('estimatedWaitTime');
-        displayMessage(queuePosition, estimatedWaitTime);
+        var waitMessage = GetURLParameter('waitMessage');
+        var estimatedWaitTimeMessage = GetURLParameter('estimatedWaitTimeMessage');
+        displayMessage(queuePosition, estimatedWaitTime, waitMessage, estimatedWaitTimeMessage);
 
         window.addEventListener('message', event => {
             if (event.data && event.data.queue_message == "queue_message") {
-                const { queue_position, estimated_time } = event.data;
-                displayMessage(queue_position, estimated_time);
+                const { queue_position, estimated_time, waitMessage, estimatedWaitTimeMessage } = event.data;
+                displayMessage(queue_position, estimated_time, waitMessage, estimatedWaitTimeMessage);
             } else {
                 return;
             }
