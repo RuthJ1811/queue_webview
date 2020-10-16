@@ -73,7 +73,7 @@
             const messageThree = document.querySelector('#estimated_time')
             messageOne.innerHTML = decodeURIComponent(waitMessage)
             messageTwo.innerHTML = "<div class='queue_number'>" + (queuePosition || 0) + "</div><div class='inline_queue'>queue</div>"
-            messageThree.innerHTML = decodeURIComponent(estimatedWaitTimeMessage) + " <div class='estimated_queue_time'>" + (estimatedWaitTime || 0) + "</div> minute"
+            messageThree.innerHTML = decodeURIComponent(estimatedWaitTimeMessage) + " <strong>" + (estimatedWaitTime || 0) + "</strong> minute"
         }
 
         var queuePosition = GetURLParameter('queuePosition');
