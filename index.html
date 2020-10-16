@@ -83,10 +83,13 @@
         displayMessage(queuePosition, estimatedWaitTime, waitMessage, estimatedWaitTimeMessage);
 
         window.addEventListener('message', event => {
+            console.log("html")
             if (event.data && event.data.queue_type == "queue_webview") {
+                console.log("inside html")
                 const { queue_position, estimated_time, waitMessage, estimatedWaitTimeMessage } = event.data;
                 displayMessage(queue_position, estimated_time, waitMessage, estimatedWaitTimeMessage);
             } else {
+                console.log("outside html")
                 return;
             }
         });</script>
