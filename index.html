@@ -83,7 +83,7 @@
         displayMessage(queuePosition, estimatedWaitTime, waitMessage, estimatedWaitTimeMessage);
 
         window.addEventListener('message', event => {
-            if (event.data && event.data.queue_message == "queue_message") {
+            if (event.data && event.data.queue_type == "queue_webview") {
                 const { queue_position, estimated_time, waitMessage, estimatedWaitTimeMessage } = event.data;
                 displayMessage(queue_position, estimated_time, waitMessage, estimatedWaitTimeMessage);
             } else {
